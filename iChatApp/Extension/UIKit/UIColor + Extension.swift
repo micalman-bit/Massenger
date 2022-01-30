@@ -30,4 +30,8 @@ extension UIColor {
     static func buttonDark() -> UIColor {
         return UIColor(red: 51, green: 51, blue: 51)
     }
+    
+    static func textFieldLight() -> UIColor {
+        return UIColor(red: 230, green: 230, blue: 230)
+    }
 }

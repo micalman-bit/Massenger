@@ -23,9 +23,14 @@ class AuthViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
+        googleButton.customizeGoogleButton()
         setupConstraints()
     }
-    
+}
+
+
+// MARK: - SetUp Constraints
+extension AuthViewController {
     private func setupConstraints() {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -50,6 +55,7 @@ class AuthViewController: UIViewController {
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
         ])
     }
+
 }
 
 
