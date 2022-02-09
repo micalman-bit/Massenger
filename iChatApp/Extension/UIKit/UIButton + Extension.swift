@@ -5,7 +5,6 @@
 //  Created by Andrey Samchenko on 26.01.2022.
 //
 
-import Foundation
 import UIKit
 
 extension UIButton {
