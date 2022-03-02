@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
     let passwordTextField = OneLineTextField(font: .avenir20())
 
     let loginButton = UIButton(title: "Login", titleColor: .white, backgroundColor: .buttonDark())
+    
     let signInButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sign Up", for: .normal)
@@ -32,7 +33,6 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .white
         googleButton.customizeGoogleButton()
         setupConstraints()
@@ -41,6 +41,11 @@ class LoginViewController: UIViewController {
 
 // MARK: - setup Constraints
 extension LoginViewController {
+    
+    /*
+      Настройка констрейнтов
+    */
+    
     private func setupConstraints() {
         let loginWithView = ButtonFormView(label: loginWithLabel, button: googleButton)
         let emailStackView = UIStackView(arrangedSubviews: [emailLabel, emailTextField],
@@ -94,6 +99,10 @@ extension LoginViewController {
 
 //MARK: - SwiftUI
 import SwiftUI
+
+/*
+  Для работы с Canvas
+*/
 
 struct LoginVCProvaider: PreviewProvider {
     static var previews: some View {

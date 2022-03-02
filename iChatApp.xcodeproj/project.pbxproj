@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C46963B327CE0E1D005F9AB8 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46963B227CE0E1D005F9AB8 /* Bundle-Decodable.swift */; };
+		C46963B627CE0E37005F9AB8 /* waitingChats.json in Resources */ = {isa = PBXBuildFile; fileRef = C46963B427CE0E36005F9AB8 /* waitingChats.json */; };
+		C46963B727CE0E37005F9AB8 /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = C46963B527CE0E37005F9AB8 /* activeChats.json */; };
+		C46963BA27CE36BA005F9AB8 /* ActiveChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46963B927CE36BA005F9AB8 /* ActiveChatCell.swift */; };
 		C48AA70427A15F0700503DF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48AA70327A15F0700503DF9 /* AppDelegate.swift */; };
 		C48AA70627A15F0700503DF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48AA70527A15F0700503DF9 /* SceneDelegate.swift */; };
 		C48AA70827A15F0700503DF9 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48AA70727A15F0700503DF9 /* AuthViewController.swift */; };
@@ -31,6 +35,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C46963B227CE0E1D005F9AB8 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		C46963B427CE0E36005F9AB8 /* waitingChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waitingChats.json; sourceTree = "<group>"; };
+		C46963B527CE0E37005F9AB8 /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = activeChats.json; sourceTree = "<group>"; };
+		C46963B927CE36BA005F9AB8 /* ActiveChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveChatCell.swift; sourceTree = "<group>"; };
 		C48AA70027A15F0700503DF9 /* iChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48AA70327A15F0700503DF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C48AA70527A15F0700503DF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +75,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C46963B827CE36A7005F9AB8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C46963B927CE36BA005F9AB8 /* ActiveChatCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		C48AA6F727A15F0700503DF9 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +117,8 @@
 		C4A6DBD227A17721009D75FE /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C46963B527CE0E37005F9AB8 /* activeChats.json */,
+				C46963B427CE0E36005F9AB8 /* waitingChats.json */,
 				C4E21F0627B3E63D00CF503B /* SegmentedControl + Extension.swift */,
 				C4A6DBCC27A17070009D75FE /* UIColor + Extension.swift */,
 				C4A6DBC827A16C88009D75FE /* UIButton + Extension.swift */,
@@ -118,6 +136,7 @@
 				C4A6DBD427A178E6009D75FE /* ButtonFormView.swift */,
 				C4F18EDC27A41DE900FA556D /* AddPhotoView.swift */,
 				C4A6DBDC27A1CEB8009D75FE /* OneLineTextField.swift */,
+				C46963B227CE0E1D005F9AB8 /* Bundle-Decodable.swift */,
 				C4A6DBD227A17721009D75FE /* UIKit */,
 			);
 			path = Extension;
@@ -137,6 +156,7 @@
 		C4D3EB9727B3F99C00E79F0C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C46963B827CE36A7005F9AB8 /* Cell */,
 				C4D3EB9827B3F9D300E79F0C /* MainTabBarController.swift */,
 				C4E21F0827B3F10100CF503B /* ListViewController.swift */,
 				C4D3EB9A27B3FA3100E79F0C /* PeopleViewController.swift */,
@@ -202,8 +222,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C46963B627CE0E37005F9AB8 /* waitingChats.json in Resources */,
 				C48AA71027A15F0900503DF9 /* LaunchScreen.storyboard in Resources */,
 				C48AA70D27A15F0900503DF9 /* Assets.xcassets in Resources */,
+				C46963B727CE0E37005F9AB8 /* activeChats.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,9 +240,11 @@
 				C4A6DBDD27A1CEB8009D75FE /* OneLineTextField.swift in Sources */,
 				C4D3EB9927B3F9D300E79F0C /* MainTabBarController.swift in Sources */,
 				C4A6DBDB27A1C92C009D75FE /* SignUpViewController.swift in Sources */,
+				C46963BA27CE36BA005F9AB8 /* ActiveChatCell.swift in Sources */,
 				C4A6DBCB27A16F79009D75FE /* UIFont + Extension.swift in Sources */,
 				C4D3EB9B27B3FA3100E79F0C /* PeopleViewController.swift in Sources */,
 				C48AA70827A15F0700503DF9 /* AuthViewController.swift in Sources */,
+				C46963B327CE0E1D005F9AB8 /* Bundle-Decodable.swift in Sources */,
 				C4F18EDB27A41BD700FA556D /* SetupProfileViewController.swift in Sources */,
 				C48AA70427A15F0700503DF9 /* AppDelegate.swift in Sources */,
 				C4A6DBD527A178E6009D75FE /* ButtonFormView.swift in Sources */,
