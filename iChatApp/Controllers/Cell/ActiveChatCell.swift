@@ -5,48 +5,30 @@
 //  Created by Andrey Samchenko on 01.03.2022.
 //
 
-import Foundation
 import UIKit
 
-protocol SelfConfiguringCell {
-    static var reuseId: String { get }
-    func configure(with value: MChat)
-}
-
 class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
-    
     static var reuseId: String = "ActiveChatCell"
     
+    
     let friendImageView = UIImageView()
-    let friendName = UILabel(text: "User Name", font: .laoSangamMN20())
-    let lastMassage = UILabel(text: "How are you", font: .laoSangamMN18())
-    let gradientView = UIView()
-        
+    let friendName = UILabel(text: "User name", font: .laoSangamMN20())
+    let lastMessage = UILabel(text: "How are you?", font: .laoSangamMN18())
+    let gradientView = GradientView(from: .topTrailing, to: .bottomLeading, startColor: .green, endColor: .darkGray)
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .brown
+        backgroundColor = .white
         setupConstraints()
+        
+        self.layer.cornerRadius = 4
+        self.clipsToBounds = true
     }
     
     func configure(with value: MChat) {
-        print("123")
-    }
-    
-    private func setupConstraints() {
-        friendImageView.translatesAutoresizingMaskIntoConstraints = false
-        gradientView.translatesAutoresizingMaskIntoConstraints = false
-        friendName.translatesAutoresizingMaskIntoConstraints = false
-        lastMassage.translatesAutoresizingMaskIntoConstraints = false
-        
-        friendImageView.backgroundColor = .orange
-        addSubview(friendImageView)
-        
-        NSLayoutConstraint.activate([
-            friendImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            friendImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            friendName.heightAnchor.constraint(equalToConstant: 78),
-            friendName.widthAnchor.constraint(equalToConstant: 78)
-        ])
+        friendImageView.image = UIImage(named: value.userImageString)
+        friendName.text = value.username
+        lastMessage.text = value.lastMessage
     }
     
     required init?(coder: NSCoder) {
@@ -54,24 +36,69 @@ class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
     }
 }
 
-//MARK: - SwiftUI
+// MARK: - Setup constraints
+extension ActiveChatCell {
+    private func setupConstraints() {
+        friendImageView.translatesAutoresizingMaskIntoConstraints = false
+        friendName.translatesAutoresizingMaskIntoConstraints = false
+        lastMessage.translatesAutoresizingMaskIntoConstraints = false
+        gradientView.translatesAutoresizingMaskIntoConstraints = false
+        
+        friendImageView.backgroundColor = .orange
+        gradientView.backgroundColor = .black
+        
+        addSubview(friendImageView)
+        addSubview(gradientView)
+        addSubview(friendName)
+        addSubview(lastMessage)
+        
+        NSLayoutConstraint.activate([
+            friendImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            friendImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            friendImageView.heightAnchor.constraint(equalToConstant: 78),
+            friendImageView.widthAnchor.constraint(equalToConstant: 78)
+        ])
+        
+        NSLayoutConstraint.activate([
+            friendName.topAnchor.constraint(equalTo: self.topAnchor, constant: 12),
+            friendName.leadingAnchor.constraint(equalTo: friendImageView.trailingAnchor, constant: 16),
+            friendName.trailingAnchor.constraint(equalTo: gradientView.leadingAnchor, constant: 16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            lastMessage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -12),
+            lastMessage.leadingAnchor.constraint(equalTo: friendImageView.trailingAnchor, constant: 16),
+            lastMessage.trailingAnchor.constraint(equalTo: gradientView.leadingAnchor, constant: 16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            gradientView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            gradientView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            gradientView.heightAnchor.constraint(equalToConstant: 78),
+            gradientView.widthAnchor.constraint(equalToConstant: 8)
+        ])
+        
+    }
+}
 
+// MARK: - SwiftUI
 import SwiftUI
 
 struct ActiveChatProvider: PreviewProvider {
     static var previews: some View {
         ContainerView().edgesIgnoringSafeArea(.all)
     }
-
+    
     struct ContainerView: UIViewControllerRepresentable {
-
-        let TabBarVC = MainTabBarController()
-
+        
+        let tabBarVC = MainTabBarController()
+        
         func makeUIViewController(context: UIViewControllerRepresentableContext<ActiveChatProvider.ContainerView>) -> MainTabBarController {
-            return TabBarVC
+            return tabBarVC
         }
-
+        
         func updateUIViewController(_ uiViewController: ActiveChatProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ActiveChatProvider.ContainerView>) {
+            
         }
     }
 }
