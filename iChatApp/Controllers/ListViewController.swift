@@ -1,20 +1,5 @@
 import UIKit
 
-struct MChat: Hashable, Decodable {
-    var username: String
-    var userImageString: String
-    var lastMessage: String
-    var id: Int
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-    
-    static func == (lhs: MChat, rhs: MChat) -> Bool {
-        return lhs.id == rhs.id
-    }
-}
-
 class ListViewController: UIViewController {
     
     let activeChats = Bundle.main.decode([MChat].self, from: "activeChats.json")
@@ -22,6 +7,15 @@ class ListViewController: UIViewController {
     
     enum Section: Int, CaseIterable {
         case  waitingChats, activeChats
+        
+        func description() -> String {
+            switch self {
+            case .waitingChats:
+                return "Waiting chats"
+            case .activeChats:
+                return "Active chats"
+            }
+        }
     }
     
     var dataSource: UICollectionViewDiffableDataSource<Section, MChat>?
@@ -73,13 +67,7 @@ class ListViewController: UIViewController {
 
 // MARK: - Data Source
 extension ListViewController {
-    
-    private func configure<T: SelfConfiguringCell>(cellType: T.Type, with value: MChat, indexPath: IndexPath) -> T {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseId, for: indexPath) as? T else { fatalError("Unable to dequeue \(cellType)")}
-        cell.configure(with: value)
-        return cell
-    }
-    
+        
     private func createDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, MChat>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, chat) -> UICollectionViewCell? in
             guard let section = Section(rawValue: indexPath.section) else {
@@ -88,9 +76,9 @@ extension ListViewController {
             
             switch section {
             case .activeChats:
-                return self.configure(cellType: ActiveChatCell.self, with: chat, indexPath: indexPath)
+                return self.configure(collectionView: collectionView, cellType: ActiveChatCell.self, with: chat, indexPath: indexPath)
             case .waitingChats:
-                return self.configure(cellType: WaitingChatCell.self, with: chat, indexPath: indexPath)
+                return self.configure(collectionView: collectionView, cellType: WaitingChatCell.self, with: chat, indexPath: indexPath)
             }
         })
         
@@ -98,6 +86,11 @@ extension ListViewController {
             collectionView, kind, indexPath in
             guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.reuseId, for: indexPath) as? SectionHeader else { fatalError("Can not create new section header") }
             guard let section = Section(rawValue: indexPath.section) else { fatalError("Unknow section kind") }
+            
+            sectionHeader.configure(text: section.description(),
+                                    font: .laoSangamMN20(),
+                                    color: UIColor.darkGray)
+            
             return sectionHeader
         }
     }
@@ -119,6 +112,11 @@ extension ListViewController {
                 return self.createWaitingChats()
             }
         }
+        
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 20
+        layout.configuration = config
+        
         return layout
     }
     
@@ -139,7 +137,7 @@ extension ListViewController {
         
         let sectionHeader = createSectionHeader()
         section.boundarySupplementaryItems = [sectionHeader]
-         
+        
         return section
     }
     
