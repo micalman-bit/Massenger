@@ -36,6 +36,8 @@
 		C4A6DBD927A17EA5009D75FE /* StackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A6DBD827A17EA5009D75FE /* StackView + Extension.swift */; };
 		C4A6DBDB27A1C92C009D75FE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A6DBDA27A1C92C009D75FE /* SignUpViewController.swift */; };
 		C4A6DBDD27A1CEB8009D75FE /* OneLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A6DBDC27A1CEB8009D75FE /* OneLineTextField.swift */; };
+		C4AE794127D67FF600C2BAAE /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AE794027D67FF600C2BAAE /* UIView + Extension.swift */; };
+		C4AE794327D7429A00C2BAAE /* ChatRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AE794227D7429A00C2BAAE /* ChatRequestViewController.swift */; };
 		C4D3EB9927B3F9D300E79F0C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D3EB9827B3F9D300E79F0C /* MainTabBarController.swift */; };
 		C4D3EB9B27B3FA3100E79F0C /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D3EB9A27B3FA3100E79F0C /* PeopleViewController.swift */; };
 		C4DA3B0927A2DB5A001F3E61 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA3B0827A2DB5A001F3E61 /* LoginViewController.swift */; };
@@ -77,6 +79,8 @@
 		C4A6DBD827A17EA5009D75FE /* StackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView + Extension.swift"; sourceTree = "<group>"; };
 		C4A6DBDA27A1C92C009D75FE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C4A6DBDC27A1CEB8009D75FE /* OneLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineTextField.swift; sourceTree = "<group>"; };
+		C4AE794027D67FF600C2BAAE /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		C4AE794227D7429A00C2BAAE /* ChatRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRequestViewController.swift; sourceTree = "<group>"; };
 		C4D3EB9827B3F9D300E79F0C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		C4D3EB9A27B3FA3100E79F0C /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		C4DA3B0827A2DB5A001F3E61 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 				C4A6DBCA27A16F79009D75FE /* UIFont + Extension.swift */,
 				C4A6DBD827A17EA5009D75FE /* StackView + Extension.swift */,
 				C47D71C727D21DEE0077A314 /* UIViewController + Extension.swift */,
+				C4AE794027D67FF600C2BAAE /* UIView + Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 				C4E21F0827B3F10100CF503B /* ListViewController.swift */,
 				C4D3EB9A27B3FA3100E79F0C /* PeopleViewController.swift */,
 				C47D71C927D23EDB0077A314 /* ProfileViewController.swift */,
+				C4AE794227D7429A00C2BAAE /* ChatRequestViewController.swift */,
 				C46963B827CE36A7005F9AB8 /* Cell */,
 				C47D71BD27D1FC2D0077A314 /* Header */,
 			);
@@ -309,11 +315,13 @@
 				C48AA70827A15F0700503DF9 /* AuthViewController.swift in Sources */,
 				C47D71CA27D23EDB0077A314 /* ProfileViewController.swift in Sources */,
 				C46963B327CE0E1D005F9AB8 /* Bundle-Decodable.swift in Sources */,
+				C4AE794327D7429A00C2BAAE /* ChatRequestViewController.swift in Sources */,
 				C4F18EDB27A41BD700FA556D /* SetupProfileViewController.swift in Sources */,
 				C48AA70427A15F0700503DF9 /* AppDelegate.swift in Sources */,
 				C4A6DBD527A178E6009D75FE /* ButtonFormView.swift in Sources */,
 				C4F18EDD27A41DE900FA556D /* AddPhotoView.swift in Sources */,
 				C4A6DBCF27A174C1009D75FE /* UILabel + Extension.swift in Sources */,
+				C4AE794127D67FF600C2BAAE /* UIView + Extension.swift in Sources */,
 				C4A6DBD127A175C2009D75FE /* UIImageView + Extension.swift in Sources */,
 				C47D71BA27D0F6B50077A314 /* SelfConfigurationCell.swift in Sources */,
 				C47D71C627D21B180077A314 /* UserCell.swift in Sources */,

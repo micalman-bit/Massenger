@@ -30,13 +30,23 @@ class ProfileViewController: UIViewController {
         aboutLabel.numberOfLines = 0
         
         myTextField.translatesAutoresizingMaskIntoConstraints = false
-        myTextField.borderStyle = .roundedRect
+//        myTextField.borderStyle = .roundedRect
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         conteinerView.translatesAutoresizingMaskIntoConstraints = false
         conteinerView.backgroundColor = .mainWhite()
         conteinerView.layer.cornerRadius = 30
+        
+        if let button = myTextField.rightView as? UIButton {
+            button.addTarget(self,
+                             action: #selector(sendMessage),
+                             for: .touchUpInside)
+        }
+    }
+    
+    @objc func sendMessage() {
+        print(#function)
     }
 }
 
