@@ -6,6 +6,8 @@
 //
 
 import UIKit
+//import Firebase
+//import FirebaseAuth
 
 class SignUpViewController: UIViewController {
     
@@ -37,6 +39,26 @@ class SignUpViewController: UIViewController {
         loginButton.titleLabel?.font = .avenir20()
         view.backgroundColor = .white
         setupConstraints()
+        
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func signUpButtonTapped() {
+        print(#function)
+//        AuthService.shared.
+        AuthService.shared.register(email: emailTextField.text, password: passwordTextField.text, confirmPassword: confirmPasswordTextField.text) { (result) in
+            switch result {
+            case .success(let user):
+                self.showAlert(withTitle: "Cool", message: "you are register")
+            case .failure(let error):
+                self.showAlert(withTitle: "Error!", message: error.localizedDescription)
+            }
+        }
+    }
+    
+    @objc func loginButtonTapped() {
+        print(#function)
     }
 }
 
@@ -116,5 +138,13 @@ struct SignUpVCProvaider: PreviewProvider {
         
         func updateUIViewController(_ uiViewController: SignUpVCProvaider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<SignUpVCProvaider.ContainerView>) {
         }
+    }
+}
+
+extension UIViewController {
+    func showAlert(withTitle: String, message: String) {
+        let alertController = UIAlertController(title: withTitle, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
 }
